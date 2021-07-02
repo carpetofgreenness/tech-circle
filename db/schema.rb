@@ -10,9 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_02_143718) do
+ActiveRecord::Schema.define(version: 2021_07_02_175838) do
 
   create_table "people", force: :cascade do |t|
+    t.text "email"
+    t.text "first_name"
+    t.text "last_name"
+    t.string "phone_number"
+    t.text "address"
+    t.text "city"
+    t.text "state"
+    t.integer "zip"
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_people_on_user_id"
+  end
+
+  create_table "requests", force: :cascade do |t|
+    t.integer "requester_id"
+    t.integer "point_person_id"
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["point_person_id"], name: "index_requests_on_point_person_id"
+    t.index ["requester_id"], name: "index_requests_on_requester_id"
+  end
+
+  create_table "techies", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -33,4 +58,5 @@ ActiveRecord::Schema.define(version: 2021_07_02_143718) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "people", "users"
 end
