@@ -239,3 +239,4 @@ RUBY VERSION
 
 BUNDLED WITH
    2.2.20
+bundle lock --add-platform x86_64-linux
