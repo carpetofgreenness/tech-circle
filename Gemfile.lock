@@ -68,7 +68,7 @@ GEM
       msgpack (~> 1.0)
     builder (3.2.4)
     Bundler             2.2.4
-      Platforms         ruby, x86_64-darwin-20
+      Platforms         ruby, x86_64-darwin-20, x86_64-linux
     Ruby                2.7.2p137 (2020-10-01 revision 5445e0435260b449decf2ac16f9d09bae3cafe72) [x86_64-darwin20]
       Full Path         /Users/ryanlefevre/.rvm/rubies/ruby-2.7.2/bin/ruby
       Config Dir        /Users/ryanlefevre/.rvm/rubies/ruby-2.7.2/etc
