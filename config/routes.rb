@@ -2,6 +2,6 @@
 
 Rails.application.routes.draw do
   devise_for :users
-  resources :requests
+  resources :requests, except: :show
   root 'requests#index'
 end

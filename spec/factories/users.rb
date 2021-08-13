@@ -11,6 +11,7 @@ FactoryBot.define do
     end
     password              { 'password' }
     password_confirmation { password }
+    confirmed_at          { Time.now }
 
     trait :with_person do
       after(:create) do |user, evaluator|

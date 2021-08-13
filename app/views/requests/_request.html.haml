@@ -1,1 +1,16 @@
-= request.description
+%tr
+  %td.px-6.py-4.whitespace-nowrap
+    .flex.items-center
+      .ml-4
+        .text-sm.font-medium.text-gray-900
+          = request.requester.name
+        .text-sm.text-gray-500
+          = mail_to request.requester.email
+  %td.px-6.py-4.whitespace-nowrap
+    .text-sm.text-gray-900
+      = request.point_person.person.name
+    .text-sm.text-gray-500
+      = mail_to request.point_person.person.email
+  %td.px-6.py-4
+    %span.px-2.inline-flex.text-xs.leading-5.font-semibold
+      = request.description
