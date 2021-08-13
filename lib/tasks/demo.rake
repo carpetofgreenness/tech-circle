@@ -13,8 +13,8 @@ namespace :demo do
   end
 
   task :create, [:count] => [:environment] do
-    3.times do
-      FactoryBot.create(:person)
+    5.times do
+      FactoryBot.create(:request)
     end
   end
 end

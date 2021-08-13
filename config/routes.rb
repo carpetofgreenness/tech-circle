@@ -3,5 +3,5 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :requests
-  root 'application#hello'
+  root 'requests#index'
 end

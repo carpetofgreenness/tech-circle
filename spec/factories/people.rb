@@ -4,11 +4,16 @@ FactoryBot.define do
   factory :person do
     transient do
       name { Faker::TvShows::ParksAndRec.character }
-      city { Faker::TvShows::ParksAndRec.city }
     end
     first_name { name.split[0] }
     last_name { name.split[1] }
-    email { "#{last_name}.#{first_name}@#{city}.gov" }
+    sequence :email do |n|
+      Faker::Internet.safe_email(name: "#{name.split[0]}#{n}")
+    end
     phone_number { Faker::PhoneNumber }
+    city { Faker::TvShows::ParksAndRec.city }
+    state { Faker::Address.state }
+    address { Faker::Address.street_address }
+    zip { Faker::Address.zip_code }
   end
 end
