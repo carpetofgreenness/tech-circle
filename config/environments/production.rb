@@ -75,7 +75,8 @@ Rails.application.configure do
     :user_name => 'apikey',
     :password => ENV['SENDGRID_API_KEY'],
     :domain => 'heroku.com',
-    :enable_starttls_auto => true
+    :enable_starttls_auto => true,
+    :default_from_email => 'hannahjweinstein@gmail.com'
   }
 
 
