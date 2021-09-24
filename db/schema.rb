@@ -39,10 +39,8 @@ ActiveRecord::Schema.define(version: 2021_07_02_175838) do
 
   create_table "techies", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "person_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["person_id"], name: "index_techies_on_person_id"
     t.index ["user_id"], name: "index_techies_on_user_id"
   end
 
