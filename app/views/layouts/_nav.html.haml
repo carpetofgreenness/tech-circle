@@ -24,7 +24,7 @@
             %div
               %button#user-menu-button.max-w-xs.bg-gray-800.rounded-full.flex.items-center.text-sm.focus:outline-none.focus:ring-2.focus:ring-offset-2.focus:ring-offset-gray-800.focus:ring-white{"aria-expanded" => "false", "aria-haspopup" => "true", :type => "button"}
                 %span.sr-only Open user menu
-                %img.h-8.w-8.rounded-full{:alt => "", :src => "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"}/
+                %img.h-8.w-8.rounded-full{:alt => "", :src => "https://avatars.githubusercontent.com/u/17059882?v=4"}/
             /
               Dropdown menu, show/hide based on menu state.
               
@@ -34,11 +34,11 @@
               Leaving: "transition ease-in duration-75"
               From: "transform opacity-100 scale-100"
               To: "transform opacity-0 scale-95"
-            .hidden.origin-top-right.absolute.right-0.mt-2.w-48.rounded-md.shadow-lg.py-1.bg-white.ring-1.ring-black.ring-opacity-5.focus:outline-none{"aria-labelledby" => "user-menu-button", "aria-orientation" => "vertical", :role => "menu", :tabindex => "-1"}
+            .origin-top-right.absolute.right-0.mt-2.w-48.rounded-md.shadow-lg.py-1.bg-white.ring-1.ring-black.ring-opacity-5.focus:outline-none{"aria-labelledby" => "user-menu-button", "aria-orientation" => "vertical", :role => "menu", :tabindex => "-1"}
               / Active: "bg-gray-100", Not Active: ""
               %a#user-menu-item-0.block.px-4.py-2.text-sm.text-gray-700{:href => "#", :role => "menuitem", :tabindex => "-1"} Your Profile
               %a#user-menu-item-1.block.px-4.py-2.text-sm.text-gray-700{:href => "#", :role => "menuitem", :tabindex => "-1"} Settings
-              %a#user-menu-item-2.block.px-4.py-2.text-sm.text-gray-700{:href => "#", :role => "menuitem", :tabindex => "-1"} Sign out
+              %a#user-menu-item-2.block.px-4.py-2.text-sm.text-gray-700{:href => destroy_user_session_path, :role => "menuitem", :tabindex => "-1", 'data-method': :delete} Sign out
       .-mr-2.flex.md:hidden
         / Mobile menu button
         %button.bg-gray-800.inline-flex.items-center.justify-center.p-2.rounded-md.text-gray-400.hover:text-white.hover:bg-gray-700.focus:outline-none.focus:ring-2.focus:ring-offset-2.focus:ring-offset-gray-800.focus:ring-white{"aria-controls" => "mobile-menu", "aria-expanded" => "false", :type => "button"}
