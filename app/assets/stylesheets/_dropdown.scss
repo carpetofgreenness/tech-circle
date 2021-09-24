@@ -1,0 +1,12 @@
+[data-controller='dropdown'] {
+  transition: transform $anim_duration ease-out, opacity $anim_duration ease-out;
+
+  &.transitioning {
+    opacity: 0;
+    transform: scale(.95);
+  }
+
+  &.closing {
+    transition: transform $anim_duration ease-in, opacity $anim_duration ease-in;
+  }
+}

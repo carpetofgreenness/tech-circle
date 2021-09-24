@@ -1,0 +1,30 @@
+@import 'requests';
+
+$thrive-orange: hsl(45, 100%, 47%);
+
+#app-nav {
+  $_base: $thrive-orange;
+  background-color: $_base;
+
+  .app-nav-link {
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.4rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #333;
+
+    &:not(.active):hover {
+      background-color: darken($_base, 2.5%);
+      color: #000;
+    }
+
+    &.active {
+      background-color: darken($_base, 5%);
+      color: #000;
+    }
+  }
+}
+
+body {
+  background-color: desaturate(lighten($thrive-orange, 50%), 90%);
+}
