@@ -3,21 +3,24 @@
 # crud for tech requests
 class RequestsController < ApplicationController
   def index
+    authorize Request
     @requests = Request.all
   end
 
   def new
+    authorize Request
     @request = Request.new
     @people = Person.all
     @techies = Techie.all
   end
 
   def create
+    authorize Request
     @request = Request.new(request_params)
     if @request.save
-      redirect_to :requests, notice: "Request created successfully"
+      redirect_to :requests, notice: 'Contact info created successfully'
     else
-      flash[:error] = "There was an issue creating your request."
+      flash[:error] = 'There was an issue creating your contact info.'
     end
   end
 

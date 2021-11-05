@@ -1,0 +1,15 @@
+%tr
+  %th.border-t-0.px-6.align-middle.border-l-0.border-r-0.text-sm.whitespace-nowrap.p-4.text-left.text-blueGray-700
+    = link_to person_row.name, person_path(person_row)
+  %td.border-t-0.px-6.align-center.border-l-0.border-r-0.text-sm.whitespace-nowrap.p-4
+    = phone_to number_to_phone(person_row.phone_number)
+  %td.border-t-0.px-6.align-middle.border-l-0.border-r-0.text-sm.whitespace-nowrap.p-4
+    = mail_to person_row.email
+  %td.border-t-0.px-6.align-middle.border-l-0.border-r-0.text-xs.whitespace-nowrap.p-4
+    %div
+      = person_row.address
+    %div
+      = "#{person_row.city}, #{person_row.state} #{person_row.zip}"
+  %td.border-t-0.px-6.align-middle.border-l-0.border-r-0.text-xs.whitespace-nowrap.p-4
+    - if policy(person_row).edit?
+      = link_to 'Edit', edit_person_path(person_row)
