@@ -17,7 +17,7 @@
           %h1.text-3xl.font-bold.text-gray-900
             = yield(:title)
       %main
-        - flash.each do |f|
-          = f
+        - flash.each do |message_type, message|
+          = render 'layouts/flash', message_type: message_type, message: message
         .max-w-7xl.mx-auto.py-6.sm:px-6.lg:px-8
           = yield

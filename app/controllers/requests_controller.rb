@@ -14,8 +14,11 @@ class RequestsController < ApplicationController
 
   def create
     @request = Request.new(request_params)
-    redirect_to :requests, notice: "Request created successfully" if @request.save
-    flash[:alert] = "There was an issue creating your request."
+    if @request.save
+      redirect_to :requests, notice: "Request created successfully"
+    else
+      flash[:error] = "There was an issue creating your request."
+    end
   end
 
   def edit

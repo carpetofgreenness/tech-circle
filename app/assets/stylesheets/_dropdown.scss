@@ -1,3 +1,5 @@
+$anim_duration: 500ms;
+
 [data-controller='dropdown'] {
   transition: transform $anim_duration ease-out, opacity $anim_duration ease-out;
 
