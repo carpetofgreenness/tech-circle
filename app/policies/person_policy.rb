@@ -12,4 +12,8 @@ class PersonPolicy < ApplicationPolicy
   def create?
     index?
   end
+
+  def show?
+    index?
+  end
 end

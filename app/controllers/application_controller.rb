@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
-  before_action :authenticate_user!, unless: :authorization_not_needed?
   include Pundit
-  after_action :verify_authorized
+  before_action :authenticate_user!, unless: :authorization_not_needed?
+  after_action :verify_authorized, unless: :authorization_not_needed?
 
   private
 

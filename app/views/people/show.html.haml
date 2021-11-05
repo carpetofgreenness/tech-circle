@@ -1,0 +1,11 @@
+%h1
+  = "#{@person.first_name} #{@person.last_name}"
+%p
+  = @person.email
+%p
+  = @person.phone_number
+%p
+  = @person.address
+%p
+  = "#{@person.city}, #{@person.state} #{@person.zip}"
+= render 'requests/requests_table', requests: @person.requests

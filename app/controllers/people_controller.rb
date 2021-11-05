@@ -18,6 +18,11 @@ class PeopleController < ApplicationController
     redirect_to people_path if @person.save
   end
 
+  def show
+    @person = Person.find(params[:id])
+    authorize @person
+  end
+
   private
 
   def person_params
