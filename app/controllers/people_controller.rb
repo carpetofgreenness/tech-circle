@@ -23,9 +23,20 @@ class PeopleController < ApplicationController
     authorize @person
   end
 
+  def edit
+    @person = Person.find(params[:id])
+    authorize @person
+  end
+
+  def update
+    @person = Person.find(person_params[:id])
+    authorize @person
+    redirect_to person_path(@person) if @person.update(person_params)
+  end
+
   private
 
   def person_params
-    params[:person].permit(:first_name, :last_name, :email, :phone_number, :address, :city, :zip)
+    params[:person].permit(:id, :first_name, :last_name, :email, :phone_number, :address, :city, :zip)
   end
 end

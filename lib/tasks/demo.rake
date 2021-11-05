@@ -27,6 +27,6 @@ namespace :demo do
       end
     end
 
-    FactoryBot.create(:user, :with_person, email: 'admin@example.com', password: 'password')
+    FactoryBot.create(:user, :techie, email: 'admin@example.com', password: 'password')
   end
 end

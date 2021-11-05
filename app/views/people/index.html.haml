@@ -11,6 +11,9 @@
           Email
         %th.px-6.bg-blueGray-50.text-blueGray-500.align-middle.border.border-solid.border-blueGray-100.py-3.text-xs.uppercase.border-l-0.border-r-0.whitespace-nowrap.font-semibold.text-left
           Address
+        %th.px-6.bg-blueGray-50.text-blueGray-500.align-middle.border.border-solid.border-blueGray-100.py-3.text-xs.uppercase.border-l-0.border-r-0.whitespace-nowrap.font-semibold.text-left
+          Edit
     %tbody
       = render partial: 'person_row', collection: @people
-= link_to "New Person", new_person_path, class: "fixed bottom-px right-px mt-10 w-1/4 bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+- if current_user.techie?
+  = link_to "New Person", new_person_path, class: "fixed bottom-px right-px mt-10 w-1/4 bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"

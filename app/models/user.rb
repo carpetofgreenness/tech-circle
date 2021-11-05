@@ -6,4 +6,8 @@ class User < ApplicationRecord
 
   has_one :person
   has_one :techie
+
+  def techie?
+    techie.present?
+  end
 end
