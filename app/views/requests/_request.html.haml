@@ -7,10 +7,16 @@
         .text-sm.text-gray-500
           = mail_to request.requester.email
   %td.px-6.py-4.whitespace-nowrap
-    .text-sm.text-gray-900
-      = request.point_person.person.name
-    .text-sm.text-gray-500
-      = mail_to request.point_person.person.email
+    - if request.point_person&.person.present?
+      .text-sm.text-gray-900
+        = request.point_person.name
+      .text-sm.text-gray-500
+        = mail_to request.point_person.email
+    - else
+      = form_for request do |f|
+        = f.collection_select :point_person_id, Techie.all, :id, :name, include_blank: 'Assign...'
+        = f.number_field :id, class: 'hidden', type: 'hidden'
+        = f.submit 'Assign'
   %td.px-6.py-4
     %span.px-2.inline-flex.text-xs.leading-5.font-semibold
       = request.description

@@ -6,13 +6,11 @@
           %img.h-8.w-8{:alt => "Workflow", :src => asset_path('logo.png')}
         .block
           .ml-10.flex.items-baseline.space-x-4
-            / Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white"
-            %a.bg-gray-900.text-white.px-3.py-2.rounded-md.text-sm.font-medium{:href => root_path} Dashboard
-            %a.text-gray-300.hover:bg-gray-700.hover:text-white.px-3.py-2.rounded-md.text-sm.font-medium{:href => people_path} Directory
-            %a.text-gray-300.hover:bg-gray-700.hover:text-white.px-3.py-2.rounded-md.text-sm.font-medium{:href => "#"} Projects
-            %a.text-gray-300.hover:bg-gray-700.hover:text-white.px-3.py-2.rounded-md.text-sm.font-medium{:href => "#"} Calendar
-            %a.text-gray-300.hover:bg-gray-700.hover:text-white.px-3.py-2.rounded-md.text-sm.font-medium{:href => "#"} Reports
-      .hidden.md:block
+            = app_nav_link('Dashboard', root_path)
+            = app_nav_link('Directory', '#')
+            = app_nav_link('DnD', '#')
+            = app_nav_link('Dachshund', '#')
+      .block
         .ml-4.flex.items-center.md:ml-6
           %button.bg-gray-200.p-1.rounded-full.text-gray-600.hover:text-gray-700.focus:outline-none.focus:ring-2.focus:ring-offset-2.focus:ring-offset-gray-200.focus:ring-white
             %span.sr-only View notifications

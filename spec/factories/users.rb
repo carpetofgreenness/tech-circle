@@ -20,7 +20,8 @@ FactoryBot.define do
     end
 
     trait :techie do
-      after(:create) do |user|
+      after(:create) do |user, evaluator|
+        create :person, name: evaluator.name, email: user.email, user: user
         create :techie, user: user
       end
     end

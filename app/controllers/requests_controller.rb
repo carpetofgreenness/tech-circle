@@ -25,11 +25,13 @@ class RequestsController < ApplicationController
   end
 
   def edit
-
   end
 
   def update
-
+    @request = Request.find(params[:request][:id])
+    authorize @request
+    @request.update(request_params)
+    redirect_back(fallback_location: root_path)
   end
 
   def destroy
@@ -39,6 +41,6 @@ class RequestsController < ApplicationController
   private
 
   def request_params
-    params.require(:request).permit(:requester_id, :point_person_id, :description)
+    params.require(:request).permit(:requester_id, :point_person_id, :description, :id)
   end
 end

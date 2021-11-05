@@ -3,7 +3,10 @@
 FactoryBot.define do
   factory :request do
     requester { create :person }
-    point_person { create :techie }
     description { Faker::TvShows::Buffy.quote }
+
+    trait :with_techie do
+      point_person { create :techie }
+    end
   end
 end
