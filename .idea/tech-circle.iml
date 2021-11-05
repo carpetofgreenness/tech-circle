@@ -77,6 +77,7 @@
     <orderEntry type="library" scope="PROVIDED" name="orm_adapter (v0.5.0, rbenv: 2.7.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="public_suffix (v4.0.6, rbenv: 2.7.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="puma (v5.4.0, rbenv: 2.7.3) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="pundit (v2.1.0, rbenv: 2.7.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="racc (v1.5.2, rbenv: 2.7.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rack (v2.2.3, rbenv: 2.7.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rack-proxy (v0.7.0, rbenv: 2.7.3) [gem]" level="application" />
@@ -156,6 +157,8 @@
         <option value="migration" />
         <option value="model" />
         <option value="mongoid:devise" />
+        <option value="pundit:install" />
+        <option value="pundit:policy" />
         <option value="resource" />
         <option value="responders:install" />
         <option value="responders_controller" />
@@ -170,6 +173,7 @@
         <option value="rspec:mailbox" />
         <option value="rspec:mailer" />
         <option value="rspec:model" />
+        <option value="rspec:policy" />
         <option value="rspec:request" />
         <option value="rspec:scaffold" />
         <option value="rspec:system" />
@@ -189,6 +193,7 @@
         <option value="test_unit:mailer" />
         <option value="test_unit:model" />
         <option value="test_unit:plugin" />
+        <option value="test_unit:policy" />
         <option value="test_unit:scaffold" />
         <option value="test_unit:system" />
       </list>
@@ -221,6 +226,8 @@
         <option value="migration" />
         <option value="model" />
         <option value="mongoid:devise" />
+        <option value="pundit:install" />
+        <option value="pundit:policy" />
         <option value="resource" />
         <option value="responders:install" />
         <option value="responders_controller" />
@@ -235,6 +242,7 @@
         <option value="rspec:mailbox" />
         <option value="rspec:mailer" />
         <option value="rspec:model" />
+        <option value="rspec:policy" />
         <option value="rspec:request" />
         <option value="rspec:scaffold" />
         <option value="rspec:system" />
@@ -254,6 +262,7 @@
         <option value="test_unit:mailer" />
         <option value="test_unit:model" />
         <option value="test_unit:plugin" />
+        <option value="test_unit:policy" />
         <option value="test_unit:scaffold" />
         <option value="test_unit:system" />
       </list>
@@ -456,6 +465,7 @@
           <RakeTaskImpl description="Run all specs in spec directory (excluding plugin specs)" fullCommand="spec" id="spec" />
           <RakeTaskImpl id="spec">
             <subtasks>
+              <RakeTaskImpl description="Run the code examples in spec/helpers" fullCommand="spec:helpers" id="helpers" />
               <RakeTaskImpl description="Run the code examples in spec/models" fullCommand="spec:models" id="models" />
               <RakeTaskImpl description="Run the code examples in spec/requests" fullCommand="spec:requests" id="requests" />
             </subtasks>

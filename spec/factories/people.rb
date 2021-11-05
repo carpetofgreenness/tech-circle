@@ -10,7 +10,8 @@ FactoryBot.define do
     sequence :email do |n|
       Faker::Internet.safe_email(name: "#{name.split[0]}#{n}")
     end
-    phone_number { Faker::PhoneNumber }
+    Faker::Config.locale = 'en-US'
+    phone_number { "215#{Faker::PhoneNumber.exchange_code}#{Faker::PhoneNumber.subscriber_number}" }
     city { Faker::TvShows::ParksAndRec.city }
     state { Faker::Address.state }
     address { Faker::Address.street_address }

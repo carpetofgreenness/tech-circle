@@ -1,0 +1,26 @@
+= form_for @person do |f|
+  .mb-6
+    = f.label 'First name', class: 'text-sm font-medium text-gray-900 block mb-2', for: 'first_name'
+    = f.text_field :first_name, id: 'first_name', class: 'bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5', placeholder: "First name", required: "", type: 'text'
+  .mb-6
+    = f.label 'Last name', class: 'text-sm font-medium text-gray-900 block mb-2', for: 'last_name'
+    = f.text_field :last_name, id: 'last_name', class: 'bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5', placeholder: "Last name", required: "", type: 'text'
+  .mb-6
+    = f.label 'Email address', class: 'text-sm font-medium text-gray-900 block mb-2', for: 'email'
+    = f.text_field :email, id: 'email', class: 'bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5', placeholder: "name@flowbite.com", required: "", type: 'email'
+  .mb-6
+    = f.label 'Phone number', class: 'text-sm font-medium text-gray-900 block mb-2', for: 'phone_number'
+    = f.text_field :phone_number, id: 'phone_number', class: 'bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5', placeholder: "(555) 555-5555", required: "", type: 'tel'
+  .mb-6
+    = f.label 'Address', class: 'text-sm font-medium text-gray-900 block mb-2', for: 'address'
+    = f.text_field :address, id: 'address', class: 'bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5', placeholder: "123 Fake Street", required: "", type: 'text'
+  .mb-6
+    = f.label 'City', class: 'text-sm font-medium text-gray-900 block mb-2', for: 'city'
+    = f.text_field :city, id: 'city', class: 'bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5', placeholder: "Philadelphia", required: "", type: 'text'
+  .mb-6
+    = f.label 'State', class: 'text-sm font-medium text-gray-900 block mb-2', for: 'state'
+    = f.text_field :state, id: 'state', class: 'bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5', placeholder: "Pennsylvania", required: "", type: 'text'
+  .mb-6
+    = f.label 'Zip code', class: 'text-sm font-medium text-gray-900 block mb-2', for: 'zip'
+    = f.text_field :zip, id: 'zip', class: 'bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5', placeholder: "55555", required: "", type: 'number'
+  = f.submit 'Add to Directory', class: 'text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 text-center py-2.5', type: 'submit'

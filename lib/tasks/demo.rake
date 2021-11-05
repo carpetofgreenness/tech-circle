@@ -16,5 +16,7 @@ namespace :demo do
     5.times do
       FactoryBot.create(:request)
     end
+
+    FactoryBot.create(:user, :with_person, email: 'admin@example.com', password: 'password')
   end
 end
