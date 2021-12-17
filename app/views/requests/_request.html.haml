@@ -18,5 +18,7 @@
         = f.number_field :id, class: 'hidden', type: 'hidden'
         = f.submit 'Assign'
   %td.px-6.py-4
-    %span.px-2.inline-flex.text-xs.leading-5.font-semibold
+    %p.px-2.text-xs.leading-5
+      = request.request_type.description
+    %p.px-2.text-xs.leading-5.font-semibold
       = request.description

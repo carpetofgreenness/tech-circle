@@ -5,3 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+RequestType.create(description: 'Training')
+RequestType.create(description: 'New Device')
+RequestType.create(description: 'Device Repair')
+RequestType.create(description: 'Check-in Call')
+RequestType.create(description: 'Other')
