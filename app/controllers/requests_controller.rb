@@ -49,9 +49,4 @@ class RequestsController < ApplicationController
     @people = Person.all
     @techies = Techie.all
   end
-
-  def fetch_associated_resources
-    @people = Person.all
-    @techies = Techie.all
-  end
 end

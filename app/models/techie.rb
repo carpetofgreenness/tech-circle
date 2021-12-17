@@ -5,8 +5,7 @@ class Techie < ApplicationRecord
   has_one :person, through: :user
   has_many :requests, foreign_key: :point_person_id
 
-  delegate :name, to: :person
-  delegate :email, to: :person
+  delegate :name, :email, to: :person
 
   def other_requests
     Request.assigned.where.not(id: requests)
