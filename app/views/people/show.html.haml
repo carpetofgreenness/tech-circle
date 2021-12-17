@@ -1,0 +1,12 @@
+= content_for :title, @person.name
+%p
+  = @person.email
+%p
+  = @person.phone_number
+%p
+  = @person.address
+%p
+  = "#{@person.city}, #{@person.state} #{@person.zip}"
+- if policy(@person).edit?
+  = link_to 'Edit contact information', edit_person_path(@person)
+= render 'requests/requests_table', requests: @person.requests

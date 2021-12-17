@@ -1,16 +1,3 @@
 = content_for :title, "Requests"
-.flex.flex-col
-  .-my-2.overflow-x-auto.sm:-mx-6.lg:-mx-8
-    .py-2.align-middle.inline-block.min-w-full.sm:px-6.lg:px-8
-      .shadow.overflow-hidden.border-b.border-gray-200.sm:rounded-lg
-        %table.min-w-full.divide-y.divide-gray-200
-          %tr
-            %th.px-6.py-3.text-left.text-xs.font-medium.text-gray-500.uppercase.tracking-wider{:scope => "col"}
-              Requester
-            %th.px-6.py-3.text-left.text-xs.font-medium.text-gray-500.uppercase.tracking-wider{:scope => "col"}
-              Person in charge
-            %th.px-6.py-3.text-left.text-xs.font-medium.text-gray-500.uppercase.tracking-wider{:scope => "col"}
-              Description
-          %tbody.bg-white.divide-y.divide-gray-200
-            = render @requests
+= render 'requests_table', requests: @requests
 = link_to "New Request", "requests/new", class: "fixed bottom-px right-px mt-10 w-1/4 bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
