@@ -5,7 +5,7 @@ class Request < ApplicationRecord
   belongs_to :requester, class_name: 'Person'
 
   scope :open, -> { where(point_person_id: nil) }
-  scope :assigned, -> { where('point_person_id is not null') }
+  scope :assigned, -> { where.not(point_person_id: nil) }
 
 
   validates :description, presence: true
