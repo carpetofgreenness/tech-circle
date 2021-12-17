@@ -2,25 +2,24 @@
 
 # crud for tech requests
 class RequestsController < ApplicationController
+  before_action :fetch_associated_resources, only: [:new, :create]
+
   def index
     authorize Request
     @requests = Request.all
   end
 
   def new
-    authorize Request
-    @request = Request.new
-    @people = Person.all
-    @techies = Techie.all
+    @request = authorize Request.new
   end
 
   def create
-    authorize Request
-    @request = Request.new(request_params)
+    @request = authorize Request.new(request_params)
     if @request.save
       redirect_to :requests, notice: 'Request created successfully'
     else
-      flash[:alert] = 'There was an issue creating your request.'
+      flash.now[:error] = 'There was an issue creating your contact info.'
+      render :new
     end
   end
 
@@ -29,7 +28,9 @@ class RequestsController < ApplicationController
   end
 
   def update
-
+    @request = authorize Request.find(params[:request][:id])
+    @request.update(request_params)
+    redirect_back(fallback_location: root_path)
   end
 
   def destroy
@@ -40,5 +41,10 @@ class RequestsController < ApplicationController
 
   def request_params
     params.require(:request).permit(:requester_id, :point_person_id, :description)
+  end
+
+  def fetch_associated_resources
+    @people = Person.all
+    @techies = Techie.all
   end
 end
