@@ -3,7 +3,7 @@
 FactoryBot.define do
   factory :request do
     requester { create :person }
-    description { Faker::TvShows::Buffy.quote }
+    description { Faker::Food.description }
     request_type { RequestType.all.sample }
 
     trait :with_techie do

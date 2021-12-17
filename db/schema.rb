@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_17_193709) do
+ActiveRecord::Schema.define(version: 2021_12_17_204957) do
 
   create_table "people", force: :cascade do |t|
     t.text "email"
@@ -27,6 +27,12 @@ ActiveRecord::Schema.define(version: 2021_12_17_193709) do
     t.index ["user_id"], name: "index_people_on_user_id"
   end
 
+  create_table "request_statuses", force: :cascade do |t|
+    t.string "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "request_types", force: :cascade do |t|
     t.string "description"
     t.datetime "created_at", precision: 6, null: false
@@ -40,6 +46,7 @@ ActiveRecord::Schema.define(version: 2021_12_17_193709) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "request_type_id"
+    t.integer "request_status_id"
     t.index ["point_person_id"], name: "index_requests_on_point_person_id"
     t.index ["requester_id"], name: "index_requests_on_requester_id"
   end
