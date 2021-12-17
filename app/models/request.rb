@@ -5,4 +5,6 @@ class Request < ApplicationRecord
   belongs_to :requester, class_name: 'Person'
 
   scope :open, -> { where('point_person_id is null') }
+
+  validates :description, presence: true
 end

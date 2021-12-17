@@ -8,29 +8,24 @@ class PeopleController < ApplicationController
   end
 
   def new
-    authorize Person
-    @person = Person.new
+    @person = authorize Person.new
   end
 
   def create
-    authorize Person
-    @person = Person.new(person_params)
+    @person = authorize Person.new(person_params)
     redirect_to people_path if @person.save
   end
 
   def show
-    @person = Person.find(params[:id])
-    authorize @person
+    @person = authorize Person.find(params[:id])
   end
 
   def edit
-    @person = Person.find(params[:id])
-    authorize @person
+    @person = authorize Person.find(params[:id])
   end
 
   def update
-    @person = Person.find(person_params[:id])
-    authorize @person
+    @person = authorize Person.find(person_params[:id])
     redirect_to person_path(@person) if @person.update(person_params)
   end
 
