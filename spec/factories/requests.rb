@@ -6,7 +6,7 @@ FactoryBot.define do
     description { Faker::TvShows::Buffy.quote }
 
     trait :with_techie do
-      point_person { create :techie }
+      point_person factory: :techie
     end
   end
 end
