@@ -22,9 +22,10 @@ namespace :demo do
     end
 
     Person.all.each do |person|
-      3.times do
+      2.times do
         FactoryBot.create(:request, requester: person, point_person: Techie.all.sample)
       end
+      FactoryBot.create(:request, requester: person)
     end
 
     FactoryBot.create(:user, :techie, email: 'admin@example.com', password: 'password')

@@ -7,6 +7,9 @@ class RequestsController < ApplicationController
   def index
     authorize Request
     @requests = Request.all
+    @my_requests = current_user&.techie&.requests
+    @unassigned_requests = Request.open
+    @other_requests = current_user&.techie&.other_requests
   end
 
   def new
@@ -16,7 +19,7 @@ class RequestsController < ApplicationController
   def create
     @request = authorize Request.new(request_params)
     if @request.save
-      redirect_to :requests, notice: 'Request created successfully'
+      redirect_to :requests, notice: 'Contact info created successfully'
     else
       flash.now[:error] = 'There was an issue creating your contact info.'
       render :new
@@ -24,7 +27,6 @@ class RequestsController < ApplicationController
   end
 
   def edit
-
   end
 
   def update
@@ -40,7 +42,7 @@ class RequestsController < ApplicationController
   private
 
   def request_params
-    params.require(:request).permit(:requester_id, :point_person_id, :description)
+    params.require(:request).permit(:requester_id, :point_person_id, :description, :id)
   end
 
   def fetch_associated_resources
