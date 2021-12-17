@@ -7,4 +7,8 @@ class Techie < ApplicationRecord
 
   delegate :name, to: :person
   delegate :email, to: :person
+
+  def other_requests
+    Request.assigned.where.not(id: requests)
+  end
 end

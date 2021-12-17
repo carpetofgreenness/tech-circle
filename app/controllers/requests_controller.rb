@@ -7,6 +7,9 @@ class RequestsController < ApplicationController
   def index
     authorize Request
     @requests = Request.all
+    @my_requests = current_user&.techie&.requests
+    @unassigned_requests = Request.open
+    @other_requests = current_user&.techie&.other_requests
   end
 
   def new
