@@ -1,0 +1,4 @@
+= render_alerts
+
+= turbo_stream.replace('requests_form') do
+  = render partial: 'requests/form', locals: { request: Request.new }

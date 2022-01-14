@@ -2,7 +2,7 @@
 
 # crud for tech requests
 class RequestsController < ApplicationController
-  before_action :fetch_associated_resources, only: [:new, :create]
+  before_action :fetch_associated_resources, only: [:index, :new, :create]
 
   def index
     authorize Request
@@ -15,11 +15,17 @@ class RequestsController < ApplicationController
 
   def create
     @request = authorize Request.new(request_params)
-    if @request.save
-      redirect_to :requests, notice: 'Request created successfully'
-    else
-      flash.now[:error] = 'There was an issue creating your contact info.'
-      render :new
+
+    respond_to do |format|
+      if @request.save
+        flash.now[:notice] = 'Request created successfully'
+        format.html { redirect_to :requests, notice: 'Request created successfully' }
+        format.turbo_stream
+      else
+        flash.now[:error] = 'There was an issue creating your contact info.'
+        format.html { render :new, status: :unprocessable_entity }
+        format.turbo_stream { render :new }
+      end
     end
   end
 
