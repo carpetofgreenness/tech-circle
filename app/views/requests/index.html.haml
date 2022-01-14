@@ -1,3 +1,9 @@
 = content_for :title, "Requests"
+
+.mb-8
+  = turbo_frame_tag 'requests_form' do
+    = render 'form', request: Request.new
+
 = render 'requests_table', requests: @requests
+
 = link_to "New Request", "requests/new", class: "fixed bottom-px right-px mt-10 w-1/4 bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
