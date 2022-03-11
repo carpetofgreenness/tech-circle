@@ -15,8 +15,14 @@
     - else
       = form_for request do |f|
         = f.collection_select :point_person_id, Techie.all, :id, :name, include_blank: 'Assign...'
-        = f.number_field :id, class: 'hidden', type: 'hidden'
         = f.submit 'Assign'
   %td.px-6.py-4
-    %span.px-2.inline-flex.text-xs.leading-5.font-semibold
+    %p.px-2.text-xs.leading-5
+      = request.request_type.description
+    %p.px-2.text-xs.leading-5.font-semibold
       = request.description
+  %td.px-6.py-4.whitespace-nowrap
+    -# = request.request_status.description
+    = form_for request do |f|
+      = f.collection_select :request_status_id, RequestStatus.all, :id, :description,
+      { include_blank: true }, { data: { controller: 'ts-select' } }

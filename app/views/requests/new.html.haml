@@ -12,6 +12,9 @@
               .col-span-6.sm:col-span-4
                 = f.label :person_in_charge, 'To be handled by', class: "block text-sm font-medium text-gray-700"
                 = f.collection_select :point_person_id, @techies, :id, :name, prompt: true
+              .col-span-6.sm:col-span-4
+                = f.label :request_type, 'Type of Request', class: "block text-sm font-medium text-gray-700"
+                = f.collection_select :request_type_id, RequestType.all, :id, :description, prompt: true
               .col-span-6
                 = f.label :description, "Description", class: "block text-sm font-medium text-gray-700"
                 = f.text_area :description, placeholder: "99 big red balloons", id: "description", class: "shadow-sm mt-1 focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md", rows: "3"

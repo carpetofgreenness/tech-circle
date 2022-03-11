@@ -5,3 +5,14 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+RequestType.find_or_create_by(description: 'Training')
+RequestType.find_or_create_by(description: 'New Device')
+RequestType.find_or_create_by(description: 'Device Repair')
+RequestType.find_or_create_by(description: 'Check-in Call')
+RequestType.find_or_create_by(description: 'Other')
+
+RequestStatus.find_or_create_by(description: 'Unassigned')
+RequestStatus.find_or_create_by(description: 'Unstarted')
+RequestStatus.find_or_create_by(description: 'In Progress')
+RequestStatus.find_or_create_by(description: 'Resolved')

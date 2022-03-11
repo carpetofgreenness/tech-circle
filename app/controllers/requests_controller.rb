@@ -19,9 +19,9 @@ class RequestsController < ApplicationController
   def create
     @request = authorize Request.new(request_params)
     if @request.save
-      redirect_to :requests, notice: 'Contact info created successfully'
+      redirect_to :requests, notice: 'Request info created successfully'
     else
-      flash.now[:error] = 'There was an issue creating your contact info.'
+      flash.now[:error] = 'There was an issue creating your request.'
       render :new
     end
   end
@@ -30,7 +30,7 @@ class RequestsController < ApplicationController
   end
 
   def update
-    @request = authorize Request.find(params[:request][:id])
+    @request = authorize Request.find(params[:id])
     @request.update(request_params)
     redirect_back(fallback_location: root_path)
   end
@@ -42,7 +42,7 @@ class RequestsController < ApplicationController
   private
 
   def request_params
-    params.require(:request).permit(:requester_id, :point_person_id, :description, :id)
+    params.require(:request).permit(:requester_id, :point_person_id, :description, :id, :request_type_id, :request_status_id)
   end
 
   def fetch_associated_resources
