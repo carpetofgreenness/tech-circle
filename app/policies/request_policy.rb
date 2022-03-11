@@ -17,6 +17,10 @@ class RequestPolicy < ApplicationPolicy
     index?
   end
 
+  def update_assignment?
+    index?
+  end
+
   class Scope < Scope
     def resolve
       if user.techie?

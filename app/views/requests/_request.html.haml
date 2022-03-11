@@ -13,7 +13,7 @@
       .text-sm.text-gray-500
         = mail_to request.point_person.email
     - else
-      = form_for request do |f|
+      = form_with url: request_update_assignment_path(request), method: :patch do |f|
         = f.collection_select :point_person_id, Techie.all, :id, :name, include_blank: 'Assign...'
         = f.submit 'Assign'
   %td.px-6.py-4
@@ -26,3 +26,7 @@
     = form_for request do |f|
       = f.collection_select :request_status_id, RequestStatus.all, :id, :description,
       { include_blank: true }, { data: { controller: 'ts-select' } }
+  %td.px-6.py-4
+
+    = link_to edit_request_path(request) do
+      %i.fa-solid.fa-pencil{ title: 'Edit request' }

@@ -1,23 +1,2 @@
 = content_for :title, "New Request"
-.mt-10.sm:mt-0
-  .md:grid.md:grid-cols-3.md:gap-6
-    .mt-5.md:mt-0.md:col-span-2
-      = form_with model: @request, url: requests_path do |f|
-        .shadow.overflow-hidden.sm:rounded-md
-          .px-4.py-5.bg-white.sm:p-6
-            .grid.grid-cols-6.gap-6
-              .col-span-6.sm:col-span-4
-                = f.label :requester, 'Request on behalf of', class: "block text-sm font-medium text-gray-700"
-                = f.collection_select :requester_id, @people, :id, :name
-              .col-span-6.sm:col-span-4
-                = f.label :person_in_charge, 'To be handled by', class: "block text-sm font-medium text-gray-700"
-                = f.collection_select :point_person_id, @techies, :id, :name, prompt: true
-              .col-span-6.sm:col-span-4
-                = f.label :request_type, 'Type of Request', class: "block text-sm font-medium text-gray-700"
-                = f.collection_select :request_type_id, RequestType.all, :id, :description, prompt: true
-              .col-span-6
-                = f.label :description, "Description", class: "block text-sm font-medium text-gray-700"
-                = f.text_area :description, placeholder: "99 big red balloons", id: "description", class: "shadow-sm mt-1 focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md", rows: "3"
-          .px-4.py-3.bg-gray-50.text-right.sm:px-6
-            %button.inline-flex.justify-center.py-2.px-4.border.border-transparent.shadow-sm.text-sm.font-medium.rounded-md.text-white.bg-indigo-600.hover:bg-indigo-700.focus:outline-none.focus:ring-2.focus:ring-offset-2.focus:ring-indigo-500{:type => "submit"}
-              Save
+= render 'form', path: requests_path
