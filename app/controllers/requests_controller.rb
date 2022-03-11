@@ -2,7 +2,7 @@
 
 # crud for tech requests
 class RequestsController < ApplicationController
-  before_action :fetch_associated_resources, only: [:new, :create]
+  before_action :fetch_associated_resources, only: [:new, :create, :edit, :update]
 
   def index
     authorize Request
@@ -27,12 +27,22 @@ class RequestsController < ApplicationController
   end
 
   def edit
+    @request = authorize Request.find(params[:id])
+  end
+
+  def update_assignment
+    @request = authorize Request.find(params[:request_id])
+    @request.update(point_person_id: params[:point_person_id])
+    redirect_back(fallback_location: root_path)
   end
 
   def update
     @request = authorize Request.find(params[:id])
-    @request.update(request_params)
-    redirect_back(fallback_location: root_path)
+    if @request.update(request_params)
+      redirect_to requests_path
+    else
+      render :edit
+    end
   end
 
   def destroy
