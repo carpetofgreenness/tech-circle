@@ -13,12 +13,12 @@ namespace :demo do
   end
 
   task :create, [:count] => [:environment] do
-    5.times do
+    8.times do
       FactoryBot.create(:person)
     end
 
-    3.times do
-      FactoryBot.create(:techie)
+    Person.all.sample(3).each do |p|
+      FactoryBot.create :techie, user: FactoryBot.create(:user, person: p)
     end
 
     Person.all.each do |person|
@@ -28,6 +28,10 @@ namespace :demo do
       FactoryBot.create(:request, requester: person)
     end
 
-    FactoryBot.create(:user, :techie, email: 'admin@example.com', password: 'password')
+    t_user = Techie.all.sample.user
+    if t_user.update_column(:email, 'admin@example.com')
+      t_user.reload
+      puts "created techie #{t_user.person.name} with email: #{t_user.email} and password: 'password'"
+    end
   end
 end
